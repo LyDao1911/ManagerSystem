@@ -4,8 +4,11 @@
  */
 package sm;
 
+import dao.UserDao;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-
+import static javax.swing.JOptionPane.showMessageDialog;
+import model.User;
 /**
  *
  * @author Admin
@@ -26,6 +29,17 @@ public class Login extends javax.swing.JFrame {
         txtEmail.setText("");
         txtPasword.setText("");
         btnLogin.setEnabled(false);
+    }
+    
+    public void validateFields(){
+        String email = txtEmail.getText();
+        String password = txtPasword.getText();
+        if(email.matches(emailPattern) && !password.equals("")){
+            btnLogin.setEnabled(true);
+        }
+        else{
+            btnLogin.setEnabled(false);
+        }
     }
 
     /**
@@ -50,6 +64,7 @@ public class Login extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Hệ thống quản lý Cá Heo Quán");
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -67,9 +82,19 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 279, -1, -1));
 
         txtEmail.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtEmailKeyReleased(evt);
+            }
+        });
         getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(483, 273, 395, -1));
 
         txtPasword.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtPasword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPaswordKeyReleased(evt);
+            }
+        });
         getContentPane().add(txtPasword, new org.netbeans.lib.awtextra.AbsoluteConstraints(483, 317, 395, -1));
 
         btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -85,6 +110,11 @@ public class Login extends javax.swing.JFrame {
         btnClear.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/clear.png"))); // NOI18N
         btnClear.setText("Làm mới");
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(627, 374, -1, -1));
 
         btnExit.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -103,6 +133,11 @@ public class Login extends javax.swing.JFrame {
 
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton5.setText("Đăng ký");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(793, 433, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/first page background.PNG"))); // NOI18N
@@ -113,6 +148,23 @@ public class Login extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
+        String email = txtEmail.getText();
+        String password = txtPasword.getText();
+        User user = null;
+        user = UserDao.login(email, password);
+        if(user == null)
+            JOptionPane.showMessageDialog(null, "<html><b style =\"color:red\">Sai tên người dùng hoặc mật khẩu</b></html>","Thông báo",JOptionPane.ERROR_MESSAGE);
+        else{
+            if(user.getStatus().equals("false")){
+                ImageIcon icon = new ImageIcon("src/popupicon/wait.png");
+                JOptionPane.showMessageDialog(null, "<html><b>Vui lòng chờ quản trị viên phê duyệt!</b></html>","Message",JOptionPane.INFORMATION_MESSAGE,icon);
+                clear();
+            }
+            if(user.getStatus().equals("true")){
+                setVisible(false);
+                new Home(email).setVisible(true);
+            }
+        }
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
@@ -122,6 +174,27 @@ public class Login extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_btnExitActionPerformed
+
+    private void txtEmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyReleased
+        // TODO add your handling code here:
+        validateFields();
+    }//GEN-LAST:event_txtEmailKeyReleased
+
+    private void txtPaswordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPaswordKeyReleased
+        // TODO add your handling code here:
+        validateFields();
+    }//GEN-LAST:event_txtPaswordKeyReleased
+
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        // TODO add your handling code here:
+        clear();
+    }//GEN-LAST:event_btnClearActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        new signup().setVisible(true);
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
