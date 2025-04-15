@@ -4,18 +4,58 @@
  */
 package sm;
 
+import javax.swing.JOptionPane;
+import model.User;
+import dao.UserDao;
+
 /**
  *
  * @author MINE
  */
 public class ForgotPassword extends javax.swing.JFrame {
-    
+
+    private String dbAnswer = null;
+    private String email = null;
+    public String emailPattern = "^[a-zA-Z0-9]+[@]+[a-zA-Z0-9]+[.]+[a-zA-Z0-9]+$";
 
     /**
      * Creates new form ForgotPassword
      */
     public ForgotPassword() {
         initComponents();
+        btnUpdate.setEnabled(false);
+        btnSearch.setEnabled(false);
+        txtSecQue.setEditable(false);
+    }
+
+    public void clear() {
+        btnUpdate.setEnabled(false);
+        btnSearch.setEnabled(false);
+        txtEmail.setEditable(true);
+        txtEmail.setText("");
+        txtSecQue.setText("");
+        txtAnswer.setText("");
+        txtNewPassword.setText("");
+    }
+
+    public void validateEmail() {
+        email = txtEmail.getText();
+        if (email.matches(emailPattern)) {
+            btnSearch.setEnabled(true);
+        } else {
+            btnSearch.setEnabled(false);
+        }
+    }
+
+    public void validateFields() {
+        String password = txtNewPassword.getText();
+        String answer = txtAnswer.getText();
+        String securityQuestion = txtSecQue.getText();
+        if (!password.equals("") && !answer.equals("") && !securityQuestion.equals("")) {
+            btnUpdate.setEnabled(true);
+        } else {
+            btnUpdate.setEnabled(false);
+        }
     }
 
     /**
@@ -36,7 +76,7 @@ public class ForgotPassword extends javax.swing.JFrame {
         txtSecQue = new javax.swing.JTextField();
         txtAnswer = new javax.swing.JTextField();
         txtNewPassword = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        btnSearch = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -71,24 +111,54 @@ public class ForgotPassword extends javax.swing.JFrame {
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(272, 433, -1, -1));
 
         txtEmail.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtEmailKeyReleased(evt);
+            }
+        });
         getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(493, 302, 442, -1));
 
         txtSecQue.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtSecQue.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSecQueKeyReleased(evt);
+            }
+        });
         getContentPane().add(txtSecQue, new org.netbeans.lib.awtextra.AbsoluteConstraints(493, 342, 442, -1));
 
         txtAnswer.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtAnswer.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtAnswerKeyReleased(evt);
+            }
+        });
         getContentPane().add(txtAnswer, new org.netbeans.lib.awtextra.AbsoluteConstraints(493, 386, 442, -1));
 
         txtNewPassword.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtNewPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNewPasswordKeyReleased(evt);
+            }
+        });
         getContentPane().add(txtNewPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(493, 430, 442, -1));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/search.png"))); // NOI18N
-        jButton1.setText("Tìm Kiếm");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(993, 303, -1, -1));
+        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/search.png"))); // NOI18N
+        btnSearch.setText("Tìm Kiếm");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(993, 303, -1, -1));
 
         btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/save.png"))); // NOI18N
         btnUpdate.setText("Cập nhật");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(493, 484, -1, -1));
 
         btnClear.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -104,14 +174,29 @@ public class ForgotPassword extends javax.swing.JFrame {
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/exit small.png"))); // NOI18N
         jButton4.setText("Thoát");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(843, 484, -1, -1));
 
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton5.setText("Đăng ký");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(493, 538, -1, -1));
 
         jButton6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton6.setText("Đăng nhập");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(833, 538, -1, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/first page background.PNG"))); // NOI18N
@@ -122,7 +207,77 @@ public class ForgotPassword extends javax.swing.JFrame {
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         // TODO add your handling code here:
+        clear();
     }//GEN-LAST:event_btnClearActionPerformed
+
+    private void txtEmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyReleased
+        // TODO add your handling code here:
+        validateEmail();
+    }//GEN-LAST:event_txtEmailKeyReleased
+
+    private void txtSecQueKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSecQueKeyReleased
+        // TODO add your handling code here:
+        validateFields();
+    }//GEN-LAST:event_txtSecQueKeyReleased
+
+    private void txtAnswerKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAnswerKeyReleased
+        // TODO add your handling code here:
+        validateFields();
+    }//GEN-LAST:event_txtAnswerKeyReleased
+
+    private void txtNewPasswordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNewPasswordKeyReleased
+        // TODO add your handling code here:
+        validateFields();
+    }//GEN-LAST:event_txtNewPasswordKeyReleased
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        int a = JOptionPane.showConfirmDialog(null, "Bạn có thực sự muốn đóng app không?", "Thông báo", JOptionPane.YES_NO_OPTION);
+        if (a == 0) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        String answer = txtAnswer.getText();
+        String newPassword = txtNewPassword.getText();
+        if (answer.equals(dbAnswer)) {
+            UserDao.update(email, newPassword);
+            clear();
+        } else {
+            JOptionPane.showMessageDialog(null, "<html><b style=\"color:red\">Câu trả lời sai!</b></html>", "Thông báo", JOptionPane.ERROR_MESSAGE);
+
+        }
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+        email = txtEmail.getText();
+        User user = null;
+        user = UserDao.getSecurityQuestion(email);
+        if (user == null) {
+            JOptionPane.showMessageDialog(null, "<html><b style=\"color:red\">Email không đúng!</b></html>", "Thông báo", JOptionPane.ERROR_MESSAGE);
+        } else {
+            btnSearch.setEnabled(false);
+            txtEmail.setEditable(false);
+            dbAnswer = user.getAnswer();
+            txtSecQue.setText(user.getSecurityQuestion());
+            validateFields();
+        }
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        new signup().setVisible(true);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        new ForgotPassword().setVisible(true);
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,8 +316,8 @@ public class ForgotPassword extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClear;
+    private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnUpdate;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;

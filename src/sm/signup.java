@@ -7,6 +7,7 @@ package sm;
 import javax.swing.JOptionPane;
 import model.User;
 import dao.UserDao;
+
 /**
  *
  * @author MINE
@@ -34,7 +35,8 @@ public class signup extends javax.swing.JFrame {
         txtPassword.setText("");
         btnSave.setEnabled(false);
     }
-    public  void validateFields(){
+
+    public void validateFields() {
         String name = txtName.getText();
         String email = txtEmail.getText();
         String mobileNumber = txtMobileNumber.getText();
@@ -42,10 +44,11 @@ public class signup extends javax.swing.JFrame {
         String pasword = txtPassword.getText();
         String securityQuestion = txtSecurityQuestion.getText();
         String answer = txtAnswer.getText();
-        if(!name.equals("")&& email.matches(emailPattern)&&mobileNumber.matches(mobileNumberPattern)&& mobileNumber.length()==10&& !address.equals("")&& !pasword.equals("")&& !securityQuestion.equals("")&& !answer.equals(""))
+        if (!name.equals("") && email.matches(emailPattern) && mobileNumber.matches(mobileNumberPattern) && mobileNumber.length() == 10 && !address.equals("") && !pasword.equals("") && !securityQuestion.equals("") && !answer.equals("")) {
             btnSave.setEnabled(true);
-        else
+        } else {
             btnSave.setEnabled(false);
+        }
     }
 
     /**
@@ -205,6 +208,11 @@ public class signup extends javax.swing.JFrame {
 
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton4.setText("Quên mật khẩu?");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 630, -1, -1));
 
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -289,6 +297,12 @@ public class signup extends javax.swing.JFrame {
         setVisible(false);
         new Login().setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        new ForgotPassword().setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
