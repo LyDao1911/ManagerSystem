@@ -24,7 +24,7 @@ public class Home extends javax.swing.JFrame {
     public Home(String userEmail) {
         initComponents();
         email = userEmail;
-        if (!email.equals("hongluu1@gmail.com")) {
+        if (!email.equals("admin@gmail.com")) {
             btnCategory.setVisible(false);
             btnNewProduct.setVisible(false);
             btnViewEditDeleteProduct.setVisible(false);
@@ -59,7 +59,7 @@ public class Home extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logout.png"))); // NOI18N
-        jButton1.setText("Đăng ký");
+        jButton1.setText("Đăng xuất");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -100,11 +100,21 @@ public class Home extends javax.swing.JFrame {
         btnCategory.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnCategory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/category.png"))); // NOI18N
         btnCategory.setText("Quản lý danh mục");
+        btnCategory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCategoryActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 689, -1, -1));
 
         btnNewProduct.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnNewProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/new product.png"))); // NOI18N
         btnNewProduct.setText("Sản phẩm mới");
+        btnNewProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewProductActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnNewProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 689, -1, -1));
 
         btnViewEditDeleteProduct.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -133,12 +143,22 @@ public class Home extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        int a = JOptionPane.showConfirmDialog(null, "Bạn có muốn đăng ký không?", "Thông báo", JOptionPane.YES_NO_OPTION);
+        int a = JOptionPane.showConfirmDialog(null, "Bạn có muốn đăng xuất không?", "Thông báo", JOptionPane.YES_NO_OPTION);
         if (a == 0) {
             setVisible(false);
             new Login().setVisible(true);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCategoryActionPerformed
+        // TODO add your handling code here:
+        new ManageCategory().setVisible(true);
+    }//GEN-LAST:event_btnCategoryActionPerformed
+
+    private void btnNewProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewProductActionPerformed
+        // TODO add your handling code here:
+        new AddNewProduct().setVisible(true);
+    }//GEN-LAST:event_btnNewProductActionPerformed
 
     /**
      * @param args the command line arguments
