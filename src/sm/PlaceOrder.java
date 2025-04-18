@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package sm;
-
+import com.itextpdf.text.pdf.PdfWriter;
 import dao.BillDao;
 import dao.CategoryDao;
 import java.util.ArrayList;
@@ -13,7 +13,12 @@ import javax.swing.table.DefaultTableModel;
 import model.Product;
 import model.Product;
 import dao.ProductDao;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Iterator;
+import javax.swing.JOptionPane;
+import javax.swing.table.TableModel;
+import model.Bill;
 import model.Category;
 
 /**
@@ -126,7 +131,7 @@ public class PlaceOrder extends javax.swing.JFrame {
         jSpinner1 = new javax.swing.JSpinner();
         jLabel13 = new javax.swing.JLabel();
         txtProTotal = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        btnClear = new javax.swing.JButton();
         btnAddToCart = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
@@ -179,6 +184,11 @@ public class PlaceOrder extends javax.swing.JFrame {
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 175, -1, -1));
 
         txtCusName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtCusName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCusNameKeyReleased(evt);
+            }
+        });
         getContentPane().add(txtCusName, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 222, 250, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -187,6 +197,11 @@ public class PlaceOrder extends javax.swing.JFrame {
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 266, -1, -1));
 
         txtCusMobileNo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtCusMobileNo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCusMobileNoKeyReleased(evt);
+            }
+        });
         getContentPane().add(txtCusMobileNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 304, 250, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -195,6 +210,11 @@ public class PlaceOrder extends javax.swing.JFrame {
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 348, -1, -1));
 
         txtCusEmail.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtCusEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCusEmailKeyReleased(evt);
+            }
+        });
         getContentPane().add(txtCusEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 386, 250, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -203,6 +223,11 @@ public class PlaceOrder extends javax.swing.JFrame {
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(374, 83, -1, -1));
 
         jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(374, 131, 250, -1));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -211,6 +236,11 @@ public class PlaceOrder extends javax.swing.JFrame {
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(374, 175, -1, -1));
 
         txtSearch.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSearchKeyReleased(evt);
+            }
+        });
         getContentPane().add(txtSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(374, 222, 250, -1));
 
         jTable1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -222,6 +252,11 @@ public class PlaceOrder extends javax.swing.JFrame {
                 "Tên"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(374, 274, 250, -1));
@@ -248,6 +283,11 @@ public class PlaceOrder extends javax.swing.JFrame {
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(688, 175, -1, -1));
 
         jSpinner1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jSpinner1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSpinner1StateChanged(evt);
+            }
+        });
         getContentPane().add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(688, 222, 250, -1));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -258,19 +298,24 @@ public class PlaceOrder extends javax.swing.JFrame {
         txtProTotal.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         getContentPane().add(txtProTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(996, 222, 250, -1));
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/clear.png"))); // NOI18N
-        jButton2.setText("Làm mới");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnClear.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/clear.png"))); // NOI18N
+        btnClear.setText("Làm mới");
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnClearActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(688, 274, -1, -1));
+        getContentPane().add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(688, 274, -1, -1));
 
         btnAddToCart.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnAddToCart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/add to cart.png"))); // NOI18N
         btnAddToCart.setText("Thêm vào giỏ hàng");
+        btnAddToCart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddToCartActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnAddToCart, new org.netbeans.lib.awtextra.AbsoluteConstraints(1065, 274, -1, -1));
 
         jTable2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -301,6 +346,11 @@ public class PlaceOrder extends javax.swing.JFrame {
         btnGenerateBillPrint.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnGenerateBillPrint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/generate bill & print.png"))); // NOI18N
         btnGenerateBillPrint.setText("Tạo và in hóa đơn");
+        btnGenerateBillPrint.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerateBillPrintActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnGenerateBillPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(1074, 719, -1, -1));
 
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/full-page-background.PNG"))); // NOI18N
@@ -309,9 +359,10 @@ public class PlaceOrder extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        clearProductFields();
+    }//GEN-LAST:event_btnClearActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -332,6 +383,106 @@ public class PlaceOrder extends javax.swing.JFrame {
         String category = (String) jComboBox1.getSelectedItem();
         productNameByCategory(category);
     }//GEN-LAST:event_formComponentShown
+
+    private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
+        // TODO add your handling code here:
+        String name = txtSearch.getText();
+        String category = (String) jComboBox1.getSelectedItem();
+        filterProductByname(name, category);
+    }//GEN-LAST:event_txtSearchKeyReleased
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        int  index = jTable1.getSelectedRow();
+        TableModel model = jTable1.getModel();
+        String productName = model.getValueAt(index, 0).toString();
+        Product product = ProductDao.getProductByName(productName);
+        txtProName.setText(product.getName());
+        txtProPrice.setText(product.getPrice());
+        jSpinner1.setValue(1);
+        txtProTotal.setText(product.getPrice());
+        productPrice = Integer.parseInt(product.getPrice());
+        productTotal = Integer.parseInt(product.getPrice());
+        btnAddToCart.setEnabled(true);
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jSpinner1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner1StateChanged
+        // TODO add your handling code here:
+        int quantity =(Integer) jSpinner1.getValue();
+        if(quantity<=1){
+            jSpinner1.getValue();
+            quantity=1;
+        }
+        productTotal = productPrice*quantity;
+        txtProTotal.setText(String.valueOf(productTotal));
+    }//GEN-LAST:event_jSpinner1StateChanged
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+        String category = (String) jComboBox1.getSelectedItem();
+        productNameByCategory(category);
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void btnAddToCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddToCartActionPerformed
+        // TODO add your handling code here:
+        String name = txtProName.getText();
+        String price = txtProPrice.getText();
+        String quantity = String.valueOf(jSpinner1.getValue());
+        DefaultTableModel  dtm = (DefaultTableModel) jTable2.getModel();
+        dtm.addRow(new Object[]{name,price,quantity,productTotal});
+        grandTotal =grandTotal+productTotal;
+        lblGrandTotal.setText(String.valueOf(grandTotal));
+        
+        clearProductFields();
+        validateField();
+        
+    }//GEN-LAST:event_btnAddToCartActionPerformed
+
+    private void txtCusNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCusNameKeyReleased
+        // TODO add your handling code here:
+        validateField();
+    }//GEN-LAST:event_txtCusNameKeyReleased
+
+    private void txtCusMobileNoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCusMobileNoKeyReleased
+        // TODO add your handling code here:
+         validateField();
+    }//GEN-LAST:event_txtCusMobileNoKeyReleased
+
+    private void txtCusEmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCusEmailKeyReleased
+        // TODO add your handling code here:
+         validateField();
+    }//GEN-LAST:event_txtCusEmailKeyReleased
+
+    private void btnGenerateBillPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateBillPrintActionPerformed
+        // TODO add your handling code here:
+        String customerName = txtCusName.getText();
+        String customerMobileNumber = txtCusMobileNo.getText();
+        String customerEmail = txtCusEmail.getText();
+        SimpleDateFormat dFormat = new SimpleDateFormat("dd-MM-yyyy");
+        Date date = new Date();
+        String todayDate = dFormat.format(date);
+        String total = String.valueOf(grandTotal);
+        String createBy = userEmail;
+        Bill  bill = new Bill();
+        bill.setId(billId);
+        bill.setName(customerName);
+        bill.setMobileNumber(customerMobileNumber);
+        bill.setEmail(customerEmail);
+        bill.setDate(todayDate);
+        bill.setTotal(total);
+        bill.setCreatedBy(createBy);
+        BillDao.save(bill);
+        String path ="E:\\";
+        com.itextpdf.text.Document  doc = new com.itextpdf.text.Document();
+        try {
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+        
+        
+    }//GEN-LAST:event_btnGenerateBillPrintActionPerformed
 
     /**
      * @param args the command line arguments
@@ -370,9 +521,9 @@ public class PlaceOrder extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddToCart;
+    private javax.swing.JButton btnClear;
     private javax.swing.JButton btnGenerateBillPrint;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
