@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 17, 2025 lúc 11:54 AM
+-- Thời gian đã tạo: Th4 18, 2025 lúc 08:13 AM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.0.30
 
@@ -20,6 +20,22 @@ SET time_zone = "+00:00";
 --
 -- Cơ sở dữ liệu: `chms`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `bill`
+--
+
+CREATE TABLE `bill` (
+  `id` int(11) NOT NULL,
+  `name` varchar(200) DEFAULT NULL,
+  `mobileNumber` varchar(200) DEFAULT NULL,
+  `email` varchar(200) DEFAULT NULL,
+  `date` varchar(200) DEFAULT NULL,
+  `total` varchar(200) DEFAULT NULL,
+  `createdBy` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -93,11 +109,22 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `name`, `email`, `mobileNumber`, `address`, `password`, `securityQuestion`, `answer`, `status`) VALUES
 (1, 'Nam Nghệ Tuấn', 'tuannam@gmail.com', '0932149823', 'Hanoi', '123', 'Quê bạn ở đâu', 'Hanoi', 'true'),
-(2, 'Admin', 'admin@gmail.com', '0964708639', 'Hà Nội', '020790', 'Quê bạn ở đâu?', 'Hà Nội', 'true');
+(2, 'Admin', 'admin@gmail.com', '0964708639', 'Hà Nội', '020790', 'Quê bạn ở đâu?', 'Hà Nội', 'true'),
+(3, 'Đỗ Ngân Hổ', 'nganho@gmail.com', '0839287346', 'Asterum', 'hoby', 'Bạn thích con gì nhất?', 'sói', 'false'),
+(4, 'Hàn Nặc Á ', 'noah@gmail.com', '0293728373', 'Caelum', 'alphaca', 'Bạn thích uống gì nhất?', 'protein shake ', 'false'),
+(5, 'Du Hà Minh', 'hami@gmail.com', '0928374938', 'Vitaex cube ', 'hameomeo', 'Bạn thích loại hoa quả nào nhất?', 'Dưa lưới', 'false'),
+(6, 'Thái Phụng Cửu', 'bamby@gmail.com', '0928374678', 'Bamby Land', 'bonggu', 'Món ăn ưa thích?', 'Mỳ lạnh', 'true'),
+(7, 'Du Hà Mẫn', 'Haman@gmai.com', '0293847282', 'Cube ', 'haminni', 'Bạn thích con gì?', 'Mèo đen', 'false');
 
 --
 -- Chỉ mục cho các bảng đã đổ
 --
+
+--
+-- Chỉ mục cho bảng `bill`
+--
+ALTER TABLE `bill`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Chỉ mục cho bảng `category`
@@ -138,7 +165,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
