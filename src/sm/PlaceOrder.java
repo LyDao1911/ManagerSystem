@@ -3,7 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package sm;
+
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.pdf.collection.PdfTargetDictionary;
+import common.OpenPdf;
 import dao.BillDao;
 import dao.CategoryDao;
 import java.util.ArrayList;
@@ -13,6 +18,7 @@ import javax.swing.table.DefaultTableModel;
 import model.Product;
 import model.Product;
 import dao.ProductDao;
+import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
@@ -26,7 +32,7 @@ import model.Category;
  * @author MINE
  */
 public class PlaceOrder extends javax.swing.JFrame {
-
+    
     public int billId = 1;
     public int grandTotal = 0;
     public int productPrice = 0;
@@ -41,7 +47,7 @@ public class PlaceOrder extends javax.swing.JFrame {
     public PlaceOrder() {
         initComponents();
     }
-
+    
     public PlaceOrder(String email) {
         initComponents();
         txtProName.setEditable(false);
@@ -53,7 +59,7 @@ public class PlaceOrder extends javax.swing.JFrame {
         tf.setEditable(false);
         userEmail = email;
     }
-
+    
     public void productNameByCategory(String category) {
         DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
         dtm.setRowCount(0);
@@ -64,7 +70,7 @@ public class PlaceOrder extends javax.swing.JFrame {
             dtm.addRow(new Object[]{productObj.getName()});
         }
     }
-
+    
     public void filterProductByname(String name, String category) {
         DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
         dtm.setRowCount(0);
@@ -75,7 +81,7 @@ public class PlaceOrder extends javax.swing.JFrame {
             dtm.addRow(new Object[]{productObj.getName()});
         }
     }
-
+    
     public void clearProductFields() {
         txtProName.setText("");
         txtProPrice.setText("");
@@ -83,7 +89,7 @@ public class PlaceOrder extends javax.swing.JFrame {
         txtProTotal.setText("");
         btnAddToCart.setEnabled(false);
     }
-
+    
     public void validateField() {
         String customerName = txtCusName.getText();
         String customerMobileNumber = txtCusMobileNo.getText();
@@ -92,9 +98,9 @@ public class PlaceOrder extends javax.swing.JFrame {
             btnGenerateBillPrint.setEnabled(true);
         } else {
             btnGenerateBillPrint.setEnabled(false);
-
+            
         }
-
+        
     }
 
     /**
@@ -162,7 +168,7 @@ public class PlaceOrder extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1334, 6, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 10, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -327,6 +333,11 @@ public class PlaceOrder extends javax.swing.JFrame {
                 "Tên", "Giá", "Số lượng", "Tổng"
             }
         ));
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable2);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(688, 319, 558, 382));
@@ -376,7 +387,7 @@ public class PlaceOrder extends javax.swing.JFrame {
         jLabel3.setText(BillDao.getID());
         ArrayList<Category> list = CategoryDao.getAllRecord();
         Iterator<Category> itr = list.iterator();
-        while(itr.hasNext()){
+        while (itr.hasNext()) {
             Category categoryObj = itr.next();
             jComboBox1.addItem(categoryObj.getName());
         }
@@ -393,7 +404,7 @@ public class PlaceOrder extends javax.swing.JFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-        int  index = jTable1.getSelectedRow();
+        int index = jTable1.getSelectedRow();
         TableModel model = jTable1.getModel();
         String productName = model.getValueAt(index, 0).toString();
         Product product = ProductDao.getProductByName(productName);
@@ -408,12 +419,12 @@ public class PlaceOrder extends javax.swing.JFrame {
 
     private void jSpinner1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner1StateChanged
         // TODO add your handling code here:
-        int quantity =(Integer) jSpinner1.getValue();
-        if(quantity<=1){
+        int quantity = (Integer) jSpinner1.getValue();
+        if (quantity <= 1) {
             jSpinner1.getValue();
-            quantity=1;
+            quantity = 1;
         }
-        productTotal = productPrice*quantity;
+        productTotal = productPrice * quantity;
         txtProTotal.setText(String.valueOf(productTotal));
     }//GEN-LAST:event_jSpinner1StateChanged
 
@@ -428,14 +439,14 @@ public class PlaceOrder extends javax.swing.JFrame {
         String name = txtProName.getText();
         String price = txtProPrice.getText();
         String quantity = String.valueOf(jSpinner1.getValue());
-        DefaultTableModel  dtm = (DefaultTableModel) jTable2.getModel();
-        dtm.addRow(new Object[]{name,price,quantity,productTotal});
-        grandTotal =grandTotal+productTotal;
+        DefaultTableModel dtm = (DefaultTableModel) jTable2.getModel();
+        dtm.addRow(new Object[]{name, price, quantity, productTotal});
+        grandTotal = grandTotal + productTotal;
         lblGrandTotal.setText(String.valueOf(grandTotal));
         
         clearProductFields();
         validateField();
-        
+
     }//GEN-LAST:event_btnAddToCartActionPerformed
 
     private void txtCusNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCusNameKeyReleased
@@ -445,12 +456,12 @@ public class PlaceOrder extends javax.swing.JFrame {
 
     private void txtCusMobileNoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCusMobileNoKeyReleased
         // TODO add your handling code here:
-         validateField();
+        validateField();
     }//GEN-LAST:event_txtCusMobileNoKeyReleased
 
     private void txtCusEmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCusEmailKeyReleased
         // TODO add your handling code here:
-         validateField();
+        validateField();
     }//GEN-LAST:event_txtCusEmailKeyReleased
 
     private void btnGenerateBillPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateBillPrintActionPerformed
@@ -463,7 +474,7 @@ public class PlaceOrder extends javax.swing.JFrame {
         String todayDate = dFormat.format(date);
         String total = String.valueOf(grandTotal);
         String createBy = userEmail;
-        Bill  bill = new Bill();
+        Bill bill = new Bill();
         bill.setId(billId);
         bill.setName(customerName);
         bill.setMobileNumber(customerMobileNumber);
@@ -472,17 +483,60 @@ public class PlaceOrder extends javax.swing.JFrame {
         bill.setTotal(total);
         bill.setCreatedBy(createBy);
         BillDao.save(bill);
-        String path ="E:\\";
-        com.itextpdf.text.Document  doc = new com.itextpdf.text.Document();
+        String path = "D:\\";
+        com.itextpdf.text.Document doc = new com.itextpdf.text.Document();
         try {
-            
+            PdfWriter.getInstance(doc, new FileOutputStream(path + "" + billId + ".pdf"));
+            doc.open();
+            Paragraph cafeName = new Paragraph("                                                         Cá Heo Quán\n");
+            doc.add(cafeName);
+            Paragraph starLine = new Paragraph("*********************************************************************************************************");
+            doc.add(starLine);
+            Paragraph paragraph3 = new Paragraph("\tMã hoá đơn:" + billId + "\nTên:" + customerName + "\nTổng tiền:" + grandTotal);
+            doc.add(paragraph3);
+            doc.add(starLine);
+            PdfPTable tb1 = new PdfPTable(4);
+            tb1.addCell("Tên");
+            tb1.addCell("Giá");
+            tb1.addCell("Số lượng");
+            tb1.addCell("Tổng");
+            for (int i = 0; i < jTable2.getRowCount(); i++) {
+                String n = jTable2.getValueAt(i, 0).toString();
+                String d = jTable2.getValueAt(i, 1).toString();
+                String r = jTable2.getValueAt(i, 2).toString();
+                String q = jTable2.getValueAt(i, 3).toString();
+                tb1.addCell(n);
+                tb1.addCell(d);
+                tb1.addCell(r);
+                tb1.addCell(q);
+            }
+            doc.add(tb1);
+            doc.add(starLine);
+            Paragraph thanksMsg = new Paragraph("Cảm ơn bạn, mong được gặp lại lần sau.");
+            doc.add(thanksMsg);
+            OpenPdf.openById(String.valueOf(billId));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
+        doc.close();
+        setVisible(false);
+        new PlaceOrder(createBy).setVisible(true);
         
-        
-        
+
     }//GEN-LAST:event_btnGenerateBillPrintActionPerformed
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+        // TODO add your handling code here:
+        int index = jTable2.getSelectedRow();
+        int a = JOptionPane.showConfirmDialog(null, "Bạn có muốn loại bỏ sản phẩm này không?", "Thông báo", JOptionPane.YES_NO_OPTION);
+        if (a == 0) {
+            TableModel model = jTable2.getModel();
+            String total = model.getValueAt(index, 3).toString();
+            grandTotal = grandTotal - Integer.parseInt(total);
+            lblGrandTotal.setText(String.valueOf(grandTotal));
+            ((DefaultTableModel) jTable2.getModel()).removeRow(index);
+        }
+    }//GEN-LAST:event_jTable2MouseClicked
 
     /**
      * @param args the command line arguments
