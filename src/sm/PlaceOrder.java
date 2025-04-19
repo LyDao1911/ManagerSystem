@@ -26,13 +26,15 @@ import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
 import model.Bill;
 import model.Category;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.*;
 
 /**
  *
  * @author MINE
  */
 public class PlaceOrder extends javax.swing.JFrame {
-    
+
     public int billId = 1;
     public int grandTotal = 0;
     public int productPrice = 0;
@@ -47,7 +49,7 @@ public class PlaceOrder extends javax.swing.JFrame {
     public PlaceOrder() {
         initComponents();
     }
-    
+
     public PlaceOrder(String email) {
         initComponents();
         txtProName.setEditable(false);
@@ -59,7 +61,7 @@ public class PlaceOrder extends javax.swing.JFrame {
         tf.setEditable(false);
         userEmail = email;
     }
-    
+
     public void productNameByCategory(String category) {
         DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
         dtm.setRowCount(0);
@@ -70,7 +72,7 @@ public class PlaceOrder extends javax.swing.JFrame {
             dtm.addRow(new Object[]{productObj.getName()});
         }
     }
-    
+
     public void filterProductByname(String name, String category) {
         DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
         dtm.setRowCount(0);
@@ -81,7 +83,7 @@ public class PlaceOrder extends javax.swing.JFrame {
             dtm.addRow(new Object[]{productObj.getName()});
         }
     }
-    
+
     public void clearProductFields() {
         txtProName.setText("");
         txtProPrice.setText("");
@@ -89,7 +91,7 @@ public class PlaceOrder extends javax.swing.JFrame {
         txtProTotal.setText("");
         btnAddToCart.setEnabled(false);
     }
-    
+
     public void validateField() {
         String customerName = txtCusName.getText();
         String customerMobileNumber = txtCusMobileNo.getText();
@@ -98,9 +100,9 @@ public class PlaceOrder extends javax.swing.JFrame {
             btnGenerateBillPrint.setEnabled(true);
         } else {
             btnGenerateBillPrint.setEnabled(false);
-            
+
         }
-        
+
     }
 
     /**
@@ -443,7 +445,7 @@ public class PlaceOrder extends javax.swing.JFrame {
         dtm.addRow(new Object[]{name, price, quantity, productTotal});
         grandTotal = grandTotal + productTotal;
         lblGrandTotal.setText(String.valueOf(grandTotal));
-        
+
         clearProductFields();
         validateField();
 
@@ -466,6 +468,16 @@ public class PlaceOrder extends javax.swing.JFrame {
 
     private void btnGenerateBillPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateBillPrintActionPerformed
         // TODO add your handling code here:
+        String fontPath = "C:/Windows/Fonts/arial.ttf";
+        BaseFont baseFont = null;
+        Font font = null;
+        try {
+            baseFont = BaseFont.createFont(fontPath, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+            font = new Font(baseFont, 12, Font.NORMAL);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Font không hợp lệ hoặc không tìm thấy: " + e.getMessage());
+        }
+
         String customerName = txtCusName.getText();
         String customerMobileNumber = txtCusMobileNo.getText();
         String customerEmail = txtCusEmail.getText();
@@ -474,6 +486,7 @@ public class PlaceOrder extends javax.swing.JFrame {
         String todayDate = dFormat.format(date);
         String total = String.valueOf(grandTotal);
         String createBy = userEmail;
+
         Bill bill = new Bill();
         bill.setId(billId);
         bill.setName(customerName);
@@ -482,24 +495,37 @@ public class PlaceOrder extends javax.swing.JFrame {
         bill.setDate(todayDate);
         bill.setTotal(total);
         bill.setCreatedBy(createBy);
+
         BillDao.save(bill);
+
         String path = "D:\\";
         com.itextpdf.text.Document doc = new com.itextpdf.text.Document();
+
         try {
-            PdfWriter.getInstance(doc, new FileOutputStream(path + "" + billId + ".pdf"));
+            PdfWriter writer = PdfWriter.getInstance(doc, new FileOutputStream(path + billId + ".pdf"));
             doc.open();
-            Paragraph cafeName = new Paragraph("                                                         Cá Heo Quán\n");
+
+            // Thêm tên quán
+            Paragraph cafeName = new Paragraph("                                                         Cá Heo Quán\n", font);
             doc.add(cafeName);
-            Paragraph starLine = new Paragraph("*********************************************************************************************************");
+
+            // Thêm dòng ngăn cách
+            Paragraph starLine = new Paragraph("*********************************************************************************************************", font);
             doc.add(starLine);
-            Paragraph paragraph3 = new Paragraph("\tMã hoá đơn:" + billId + "\nTên:" + customerName + "\nTổng tiền:" + grandTotal);
+
+            // Thêm thông tin hoá đơn
+            Paragraph paragraph3 = new Paragraph("\tMã hoá đơn: " + billId + "\nTên: " + customerName + "\nTổng tiền: " + grandTotal, font);
             doc.add(paragraph3);
+
             doc.add(starLine);
+
+            // Tạo bảng
             PdfPTable tb1 = new PdfPTable(4);
             tb1.addCell("Tên");
             tb1.addCell("Giá");
             tb1.addCell("Số lượng");
             tb1.addCell("Tổng");
+
             for (int i = 0; i < jTable2.getRowCount(); i++) {
                 String n = jTable2.getValueAt(i, 0).toString();
                 String d = jTable2.getValueAt(i, 1).toString();
@@ -511,17 +537,22 @@ public class PlaceOrder extends javax.swing.JFrame {
                 tb1.addCell(q);
             }
             doc.add(tb1);
+
             doc.add(starLine);
-            Paragraph thanksMsg = new Paragraph("Cảm ơn bạn, mong được gặp lại lần sau.");
+
+            // Thêm lời cảm ơn
+            Paragraph thanksMsg = new Paragraph("Cảm ơn bạn, mong được gặp lại lần sau.", font);
             doc.add(thanksMsg);
-            OpenPdf.openById(String.valueOf(billId));
+
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, "Lỗi khi tạo PDF: " + e.getMessage());
+        } finally {
+            doc.close();
         }
-        doc.close();
+
         setVisible(false);
         new PlaceOrder(createBy).setVisible(true);
-        
+
 
     }//GEN-LAST:event_btnGenerateBillPrintActionPerformed
 

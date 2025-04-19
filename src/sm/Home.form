@@ -91,8 +91,11 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/image/change Password.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Thay &#x111;&#x1ed5;i m&#x1ead;t kh&#x1ea9;u"/>
+        <Property name="text" type="java.lang.String" value="&#x110;&#x1ed5;i m&#x1ead;t kh&#x1ea9;u"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+      </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="712" y="38" width="-1" height="-1"/>
@@ -107,8 +110,11 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/image/change Security Question.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Thay &#x111;&#x1ed5;i c&#xe2;u h&#x1ecf;i b&#x1ea3;o m&#x1ead;t"/>
+        <Property name="text" type="java.lang.String" value="&#x110;&#x1ed5;i c&#xe2;u h&#x1ecf;i b&#x1ea3;o m&#x1ead;t"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+      </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="936" y="38" width="-1" height="-1"/>
