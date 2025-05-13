@@ -71,33 +71,33 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 0, 0));
         jLabel1.setText("Đăng Nhập");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 184, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 310, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel2.setText("Password");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 320, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 460, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel3.setText("Email");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 279, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 420, -1, -1));
 
-        txtEmail.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtEmail.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         txtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtEmailKeyReleased(evt);
             }
         });
-        getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(483, 273, 395, -1));
+        getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 410, 490, -1));
 
-        txtPasword.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtPasword.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         txtPasword.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtPaswordKeyReleased(evt);
             }
         });
-        getContentPane().add(txtPasword, new org.netbeans.lib.awtextra.AbsoluteConstraints(483, 317, 395, -1));
+        getContentPane().add(txtPasword, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 460, 490, -1));
 
-        btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/login.png"))); // NOI18N
         btnLogin.setText("Đăng nhập");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -105,9 +105,9 @@ public class Login extends javax.swing.JFrame {
                 btnLoginActionPerformed(evt);
             }
         });
-        getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(483, 374, -1, -1));
+        getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 510, -1, -1));
 
-        btnClear.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnClear.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/clear.png"))); // NOI18N
         btnClear.setText("Làm mới");
         btnClear.addActionListener(new java.awt.event.ActionListener() {
@@ -115,9 +115,9 @@ public class Login extends javax.swing.JFrame {
                 btnClearActionPerformed(evt);
             }
         });
-        getContentPane().add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(627, 374, -1, -1));
+        getContentPane().add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 510, -1, -1));
 
-        btnExit.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnExit.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/exit small.png"))); // NOI18N
         btnExit.setText("Thoát");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
@@ -125,25 +125,25 @@ public class Login extends javax.swing.JFrame {
                 btnExitActionPerformed(evt);
             }
         });
-        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(786, 374, -1, -1));
+        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 510, -1, -1));
 
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jButton4.setText("Quên mật khẩu?");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(483, 433, -1, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 570, -1, -1));
 
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jButton5.setText("Đăng ký");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(793, 433, -1, -1));
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 570, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/first page background.PNG"))); // NOI18N
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));

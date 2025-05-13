@@ -65,56 +65,57 @@ public class ChangePassword extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/change Password.png"))); // NOI18N
         jLabel1.setText("Đổi mật khẩu");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
+        jButton1.setBackground(new java.awt.Color(255, 204, 204));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/close.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(668, 6, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 20, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel2.setText("Mật khẩu cũ");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 118, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel3.setText("Mật khẩu mới");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 162, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel4.setText("Xác nhận mật khẩu");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 206, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
 
-        txtOldPassword.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtOldPassword.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         txtOldPassword.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtOldPasswordKeyReleased(evt);
             }
         });
-        getContentPane().add(txtOldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(273, 115, 301, -1));
+        getContentPane().add(txtOldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, 310, -1));
 
-        txtNewPassword.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtNewPassword.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         txtNewPassword.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtNewPasswordKeyReleased(evt);
             }
         });
-        getContentPane().add(txtNewPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(273, 159, 301, -1));
+        getContentPane().add(txtNewPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 310, -1));
 
-        txtConfirmPassword.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtConfirmPassword.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         txtConfirmPassword.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtConfirmPasswordKeyReleased(evt);
             }
         });
-        getContentPane().add(txtConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(273, 203, 301, -1));
+        getContentPane().add(txtConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, 310, -1));
 
-        btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/save.png"))); // NOI18N
         btnUpdate.setText("Cập nhật");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -122,9 +123,9 @@ public class ChangePassword extends javax.swing.JFrame {
                 btnUpdateActionPerformed(evt);
             }
         });
-        getContentPane().add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(273, 265, -1, -1));
+        getContentPane().add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, -1, -1));
 
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/clear.png"))); // NOI18N
         jButton3.setText("Làm mới");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -132,7 +133,7 @@ public class ChangePassword extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(463, 265, -1, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 310, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/small-page-background.png"))); // NOI18N
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));

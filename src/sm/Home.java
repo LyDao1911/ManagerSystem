@@ -67,7 +67,7 @@ public class Home extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 38, -1, -1));
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/place order.png"))); // NOI18N
         jButton2.setText("Đặt hàng");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -75,9 +75,9 @@ public class Home extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 38, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, -1, -1));
 
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/View Bills & Order Placed Details.png"))); // NOI18N
         jButton3.setText("Chi tiết hoá đơn & Đơn hàng đã đặt");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -85,9 +85,9 @@ public class Home extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(378, 38, -1, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 40, -1, -1));
 
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/change Password.png"))); // NOI18N
         jButton4.setText("Đổi mật khẩu");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -95,9 +95,9 @@ public class Home extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(712, 38, -1, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 40, -1, -1));
 
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/change Security Question.png"))); // NOI18N
         jButton5.setText("Đổi câu hỏi bảo mật");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -105,9 +105,9 @@ public class Home extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(936, 38, -1, -1));
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 40, -1, -1));
 
-        jButton6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton6.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/exit.png"))); // NOI18N
         jButton6.setText("Thoát");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -115,9 +115,9 @@ public class Home extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1206, 38, -1, -1));
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1330, 40, -1, -1));
 
-        btnCategory.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCategory.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnCategory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/category.png"))); // NOI18N
         btnCategory.setText("Quản lý danh mục");
         btnCategory.addActionListener(new java.awt.event.ActionListener() {
@@ -125,9 +125,9 @@ public class Home extends javax.swing.JFrame {
                 btnCategoryActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 689, -1, -1));
+        getContentPane().add(btnCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 790, -1, -1));
 
-        btnNewProduct.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnNewProduct.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnNewProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/new product.png"))); // NOI18N
         btnNewProduct.setText("Sản phẩm mới");
         btnNewProduct.addActionListener(new java.awt.event.ActionListener() {
@@ -135,9 +135,9 @@ public class Home extends javax.swing.JFrame {
                 btnNewProductActionPerformed(evt);
             }
         });
-        getContentPane().add(btnNewProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 689, -1, -1));
+        getContentPane().add(btnNewProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 790, -1, -1));
 
-        btnViewEditDeleteProduct.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnViewEditDeleteProduct.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnViewEditDeleteProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/view edit delete product.png"))); // NOI18N
         btnViewEditDeleteProduct.setText("Xem, Chỉnh sửa& Xoá Sản Phẩm");
         btnViewEditDeleteProduct.addActionListener(new java.awt.event.ActionListener() {
@@ -145,9 +145,9 @@ public class Home extends javax.swing.JFrame {
                 btnViewEditDeleteProductActionPerformed(evt);
             }
         });
-        getContentPane().add(btnViewEditDeleteProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(637, 689, -1, -1));
+        getContentPane().add(btnViewEditDeleteProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 790, -1, -1));
 
-        btnVerifyUsers.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnVerifyUsers.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnVerifyUsers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/verify users.png"))); // NOI18N
         btnVerifyUsers.setText("Xác minh người dùng");
         btnVerifyUsers.addActionListener(new java.awt.event.ActionListener() {
@@ -155,10 +155,10 @@ public class Home extends javax.swing.JFrame {
                 btnVerifyUsersActionPerformed(evt);
             }
         });
-        getContentPane().add(btnVerifyUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 689, -1, -1));
+        getContentPane().add(btnVerifyUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 790, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/home-background-image.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1510, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

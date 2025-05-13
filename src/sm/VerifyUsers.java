@@ -65,32 +65,31 @@ public class VerifyUsers extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/verify users.png"))); // NOI18N
         jLabel1.setText("Xác minh người dùng");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 16, -1, -1));
 
+        jButton1.setBackground(new java.awt.Color(255, 204, 204));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/close.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1310, 20, 40, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1420, 20, 40, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel2.setText("Tìm kiếm");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(372, 70, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 100, -1, -1));
 
-        txtEmail.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtEmail.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         txtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtEmailKeyReleased(evt);
             }
         });
-        getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(477, 67, 407, -1));
+        getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 100, 407, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -110,12 +109,11 @@ public class VerifyUsers extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 1326, 580));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 1326, 580));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 3, 22)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("*Chọn hàng cần thay đổi");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 710, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 750, -1, 30));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/full-page-background.PNG"))); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));

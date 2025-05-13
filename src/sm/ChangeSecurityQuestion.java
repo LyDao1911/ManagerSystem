@@ -73,68 +73,69 @@ public class ChangeSecurityQuestion extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/change Security Question.png"))); // NOI18N
         jLabel1.setText("Đổi câu hỏi bảo mật");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 9, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
+        jButton1.setBackground(new java.awt.Color(255, 204, 204));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/close.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(668, 9, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 20, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel2.setText("Câu hỏi cũ");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(146, 106, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel3.setText("Câu hỏi mới");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(146, 150, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, -1, -1));
 
-        txtOldSQ.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtOldSQ.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         txtOldSQ.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtOldSQKeyReleased(evt);
             }
         });
-        getContentPane().add(txtOldSQ, new org.netbeans.lib.awtextra.AbsoluteConstraints(281, 103, 250, -1));
+        getContentPane().add(txtOldSQ, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, 330, -1));
 
-        txtNewSQ.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtNewSQ.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         txtNewSQ.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtNewSQKeyReleased(evt);
             }
         });
-        getContentPane().add(txtNewSQ, new org.netbeans.lib.awtextra.AbsoluteConstraints(281, 147, 250, -1));
+        getContentPane().add(txtNewSQ, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, 330, -1));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel4.setText("Câu trả lời mới");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(146, 194, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, -1, -1));
 
-        txtNewAns.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtNewAns.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         txtNewAns.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtNewAnsKeyReleased(evt);
             }
         });
-        getContentPane().add(txtNewAns, new org.netbeans.lib.awtextra.AbsoluteConstraints(281, 191, 250, -1));
+        getContentPane().add(txtNewAns, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, 330, -1));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel5.setText("Mật khẩu");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(146, 238, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, -1, -1));
 
-        txtpass.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtpass.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         txtpass.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtpassKeyReleased(evt);
             }
         });
-        getContentPane().add(txtpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(281, 235, 250, -1));
+        getContentPane().add(txtpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, 330, -1));
 
-        btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/save.png"))); // NOI18N
         btnUpdate.setText("Cập nhật");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -142,9 +143,9 @@ public class ChangeSecurityQuestion extends javax.swing.JFrame {
                 btnUpdateActionPerformed(evt);
             }
         });
-        getContentPane().add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(281, 293, -1, -1));
+        getContentPane().add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 340, -1, -1));
 
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/clear.png"))); // NOI18N
         jButton3.setText("Làm mới");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -152,7 +153,7 @@ public class ChangeSecurityQuestion extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 293, -1, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, -1, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/small-page-background.png"))); // NOI18N
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));

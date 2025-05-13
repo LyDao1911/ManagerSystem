@@ -19,10 +19,10 @@ public class tables {
             String categoryTable = "create table category(id int AUTO_INCREMENT primary key,name varchar(200))";
             String productTable = "create table product(id int AUTO_INCREMENT primary key,name varchar(200),category varchar(200),price varchar(200))";
             String billTable = "create table bill(id int primary key,name varchar(200),mobileNumber varchar(200), email varchar(200), date varchar(200), total varchar(200),createdBy varchar(200))";
-//            DbOperations.setDataOrDelete(userTable, "Bảng User đã được tạo thành công!");
-//            DbOperations.setDataOrDelete(adminDetails, "Thông tin quản trị viên được thêm thành công!");
-//            DbOperations.setDataOrDelete(categoryTable, "Bảng Category đã được tạo thành công!");
-//            DbOperations.setDataOrDelete(productTable, "Bảng Product đã được tạo thành công!");
+            DbOperations.setDataOrDelete(userTable, "Bảng User đã được tạo thành công!");
+            DbOperations.setDataOrDelete(adminDetails, "Thông tin quản trị viên được thêm thành công!");
+            DbOperations.setDataOrDelete(categoryTable, "Bảng Category đã được tạo thành công!");
+            DbOperations.setDataOrDelete(productTable, "Bảng Product đã được tạo thành công!");
             DbOperations.setDataOrDelete(billTable, "Bảng Bill đã được tạo thành công!");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);

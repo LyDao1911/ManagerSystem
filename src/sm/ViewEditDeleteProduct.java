@@ -76,12 +76,12 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/view edit delete product.png"))); // NOI18N
         jLabel1.setText("Xem, Chỉnh sửa& Xoá Sản Phẩm");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 18, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
 
+        jButton1.setBackground(new java.awt.Color(255, 204, 204));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/close.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -89,53 +89,48 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1307, 18, 30, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1430, 20, 30, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel2.setText("ID:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 246, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel3.setText("Tên:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel4.setText("Danh mục:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 325, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel5.setText("Giá:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 369, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 450, -1, -1));
 
-        lblId.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblId.setForeground(new java.awt.Color(255, 255, 255));
+        lblId.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         lblId.setText("00");
-        getContentPane().add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(297, 246, -1, -1));
+        getContentPane().add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, -1, -1));
 
-        txtName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtName.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         txtName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtNameKeyReleased(evt);
             }
         });
-        getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(297, 278, 423, -1));
+        getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, 423, -1));
 
-        jComboBox1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(297, 322, 423, -1));
+        jComboBox1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 390, 423, -1));
 
-        txtPrice.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtPrice.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         txtPrice.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtPriceKeyReleased(evt);
             }
         });
-        getContentPane().add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(297, 366, 423, -1));
+        getContentPane().add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 450, 423, -1));
 
-        btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/save.png"))); // NOI18N
         btnUpdate.setText("Cập nhật");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -143,9 +138,9 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
                 btnUpdateActionPerformed(evt);
             }
         });
-        getContentPane().add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(297, 426, -1, -1));
+        getContentPane().add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 530, -1, -1));
 
-        btnDelete.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnDelete.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/delete.png"))); // NOI18N
         btnDelete.setText("Xoá");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -153,9 +148,9 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
                 btnDeleteActionPerformed(evt);
             }
         });
-        getContentPane().add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(461, 426, -1, -1));
+        getContentPane().add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 530, -1, -1));
 
-        btnClear.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnClear.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/clear.png"))); // NOI18N
         btnClear.setText("Làm mới");
         btnClear.addActionListener(new java.awt.event.ActionListener() {
@@ -163,9 +158,8 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
                 btnClearActionPerformed(evt);
             }
         });
-        getContentPane().add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(608, 426, -1, -1));
+        getContentPane().add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 530, -1, -1));
 
-        jTable1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -181,7 +175,7 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(835, 181, -1, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 200, 480, 520));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/full-page-background.PNG"))); // NOI18N
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));

@@ -7,6 +7,7 @@ package sm;
 import javax.swing.JOptionPane;
 import model.User;
 import dao.UserDao;
+import javax.swing.JFrame;
 
 /**
  *
@@ -23,6 +24,7 @@ public class signup extends javax.swing.JFrame {
     public signup() {
         initComponents();
         btnSave.setEnabled(false);
+        
     }
 
     public void clear() {
@@ -80,7 +82,7 @@ public class signup extends javax.swing.JFrame {
         btnExit = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Quản lý Cá Heo Quán");
@@ -88,95 +90,95 @@ public class signup extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
         jLabel1.setText("Đăng ký");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 170, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 200, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel2.setText("Tên");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 290, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel3.setText("Email");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 340, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel4.setText("Số điện thoại");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 390, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel5.setText("Địa chỉ");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 400, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 440, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel6.setText("Mật khẩu");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 440, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 490, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel7.setText("Câu hỏi bảo mật");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 540, -1, -1));
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel8.setText("Câu trả lời");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 530, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 590, -1, -1));
 
-        txtName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtName.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         txtName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtNameKeyReleased(evt);
             }
         });
-        getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 250, 351, -1));
+        getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 290, 370, -1));
 
-        txtEmail.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtEmail.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         txtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtEmailKeyReleased(evt);
             }
         });
-        getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 300, 351, -1));
+        getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 340, 370, -1));
 
-        txtMobileNumber.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtMobileNumber.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         txtMobileNumber.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtMobileNumberKeyReleased(evt);
             }
         });
-        getContentPane().add(txtMobileNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 340, 351, -1));
+        getContentPane().add(txtMobileNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 390, 370, -1));
 
-        txtAdress.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtAdress.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         txtAdress.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtAdressKeyReleased(evt);
             }
         });
-        getContentPane().add(txtAdress, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 390, 351, -1));
+        getContentPane().add(txtAdress, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 440, 370, -1));
 
-        txtPassword.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtPassword.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         txtPassword.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtPasswordKeyReleased(evt);
             }
         });
-        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 440, 351, -1));
+        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 490, 370, -1));
 
-        txtSecurityQuestion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtSecurityQuestion.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         txtSecurityQuestion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtSecurityQuestionKeyReleased(evt);
             }
         });
-        getContentPane().add(txtSecurityQuestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 480, 351, -1));
+        getContentPane().add(txtSecurityQuestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 540, 370, -1));
 
-        txtAnswer.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtAnswer.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         txtAnswer.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtAnswerKeyReleased(evt);
             }
         });
-        getContentPane().add(txtAnswer, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 530, 351, -1));
+        getContentPane().add(txtAnswer, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 590, 370, -1));
 
-        btnSave.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSave.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/save.png"))); // NOI18N
         btnSave.setText("Lưu");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -184,9 +186,9 @@ public class signup extends javax.swing.JFrame {
                 btnSaveActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 580, -1, -1));
+        getContentPane().add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 650, -1, -1));
 
-        btnClear.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnClear.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/clear.png"))); // NOI18N
         btnClear.setText("Làm mới");
         btnClear.addActionListener(new java.awt.event.ActionListener() {
@@ -194,9 +196,9 @@ public class signup extends javax.swing.JFrame {
                 btnClearActionPerformed(evt);
             }
         });
-        getContentPane().add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 580, 120, 30));
+        getContentPane().add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 650, 120, 30));
 
-        btnExit.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnExit.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/exit small.png"))); // NOI18N
         btnExit.setText("Thoát");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
@@ -204,28 +206,28 @@ public class signup extends javax.swing.JFrame {
                 btnExitActionPerformed(evt);
             }
         });
-        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 580, -1, -1));
+        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 650, 100, -1));
 
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jButton4.setText("Quên mật khẩu?");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 630, -1, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 710, -1, -1));
 
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jButton5.setText("Đăng nhập");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 630, -1, -1));
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 710, -1, -1));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/first page background.PNG"))); // NOI18N
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, -1));
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/first page background.PNG"))); // NOI18N
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -346,6 +348,7 @@ public class signup extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -353,7 +356,6 @@ public class signup extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField txtAdress;
     private javax.swing.JTextField txtAnswer;
     private javax.swing.JTextField txtEmail;
