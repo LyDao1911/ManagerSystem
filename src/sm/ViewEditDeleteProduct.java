@@ -5,6 +5,7 @@
 package sm;
 
 import dao.CategoryDao;
+import dao.DbOperations;
 import model.Product;
 import dao.ProductDao;
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.text.html.HTMLDocument;
 import model.Category;
+import java.sql.*;
 
 /**
  *
@@ -40,6 +42,31 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
             btnUpdate.setEnabled(false);
         }
     }
+    
+    
+    public void searchProduct(String searchTerm) {
+    DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
+    dtm.setRowCount(0); // Xóa dữ liệu cũ trong bảng
+
+    ArrayList<Product> list = ProductDao.searchByName(searchTerm);
+    if (!list.isEmpty()) {
+        Product product = list.get(0); // Lấy sản phẩm đầu tiên
+        lblId.setText(String.valueOf(product.getId()));
+        txtName.setText(product.getName());
+        txtPrice.setText(product.getPrice());
+        jComboBox1.removeAllItems();
+        jComboBox1.addItem(product.getCategory());
+
+        for (Product p : list) {
+            dtm.addRow(new Object[]{p.getId(), p.getName(), p.getCategory(), p.getPrice()});
+        }
+
+        btnUpdate.setEnabled(true);
+        btnDelete.setEnabled(true);
+    } else {
+        JOptionPane.showMessageDialog(null, "Không tìm thấy sản phẩm.");
+    }
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -65,7 +92,8 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
         btnClear = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jLabel7 = new javax.swing.JLabel();
+        btnSearch = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -93,23 +121,23 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel2.setText("ID:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel3.setText("Tên:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel4.setText("Danh mục:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel5.setText("Giá:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 450, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, -1, -1));
 
         lblId.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         lblId.setText("00");
-        getContentPane().add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, -1, -1));
+        getContentPane().add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, -1, -1));
 
         txtName.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         txtName.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -117,10 +145,10 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
                 txtNameKeyReleased(evt);
             }
         });
-        getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, 423, -1));
+        getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 280, 423, -1));
 
         jComboBox1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 390, 423, -1));
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 340, 423, -1));
 
         txtPrice.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         txtPrice.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -128,7 +156,7 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
                 txtPriceKeyReleased(evt);
             }
         });
-        getContentPane().add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 450, 423, -1));
+        getContentPane().add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, 423, -1));
 
         btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/save.png"))); // NOI18N
@@ -138,7 +166,7 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
                 btnUpdateActionPerformed(evt);
             }
         });
-        getContentPane().add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 530, -1, -1));
+        getContentPane().add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 480, -1, -1));
 
         btnDelete.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/delete.png"))); // NOI18N
@@ -148,7 +176,7 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
                 btnDeleteActionPerformed(evt);
             }
         });
-        getContentPane().add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 530, -1, -1));
+        getContentPane().add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 480, -1, -1));
 
         btnClear.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/clear.png"))); // NOI18N
@@ -158,7 +186,7 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
                 btnClearActionPerformed(evt);
             }
         });
-        getContentPane().add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 530, -1, -1));
+        getContentPane().add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 480, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -175,10 +203,20 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 200, 480, 520));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 170, 480, 520));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/full-page-background.PNG"))); // NOI18N
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        btnSearch.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/search.png"))); // NOI18N
+        btnSearch.setText("Tìm kiếm");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 280, -1, -1));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/full-page-background.PNG"))); // NOI18N
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -266,6 +304,12 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+        String searchTerm = txtName.getText();
+        searchProduct(searchTerm);
+    }//GEN-LAST:event_btnSearchActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -304,6 +348,7 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClear;
     private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
@@ -312,7 +357,7 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblId;

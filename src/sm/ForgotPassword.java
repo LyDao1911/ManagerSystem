@@ -92,19 +92,19 @@ public class ForgotPassword extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 51, 51));
         jLabel1.setText("Quên mật khẩu?");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 270, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 230, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel2.setText("Email");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 370, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 320, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel3.setText("Câu hỏi bảo mật của bạn");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 400, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 390, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel4.setText("Câu trả lời");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 450, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 440, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel5.setText("Nhập mật khẩu mới");
@@ -116,7 +116,7 @@ public class ForgotPassword extends javax.swing.JFrame {
                 txtEmailKeyReleased(evt);
             }
         });
-        getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 360, 442, -1));
+        getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 320, 442, -1));
 
         txtSecQue.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         txtSecQue.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -124,7 +124,7 @@ public class ForgotPassword extends javax.swing.JFrame {
                 txtSecQueKeyReleased(evt);
             }
         });
-        getContentPane().add(txtSecQue, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 400, 442, -1));
+        getContentPane().add(txtSecQue, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 380, 442, -1));
 
         txtAnswer.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         txtAnswer.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -132,7 +132,7 @@ public class ForgotPassword extends javax.swing.JFrame {
                 txtAnswerKeyReleased(evt);
             }
         });
-        getContentPane().add(txtAnswer, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 450, 442, -1));
+        getContentPane().add(txtAnswer, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 430, 442, -1));
 
         txtNewPassword.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         txtNewPassword.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -150,7 +150,7 @@ public class ForgotPassword extends javax.swing.JFrame {
                 btnSearchActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 360, -1, -1));
+        getContentPane().add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 320, -1, -1));
 
         btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/save.png"))); // NOI18N
@@ -277,7 +277,7 @@ public class ForgotPassword extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-        new ForgotPassword().setVisible(true);
+        new Login().setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     /**

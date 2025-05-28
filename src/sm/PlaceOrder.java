@@ -28,6 +28,8 @@ import model.Bill;
 import model.Category;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.*;
+import dao.BillDetailsDao;
+import model.BillDetails;
 
 /**
  *
@@ -459,13 +461,12 @@ public class PlaceOrder extends javax.swing.JFrame {
         String customerName = txtCusName.getText();
         String customerMobileNumber = txtCusMobileNo.getText();
         String customerEmail = txtCusEmail.getText();
-        SimpleDateFormat dFormat = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat dFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date date = new Date();
         String todayDate = dFormat.format(date);
         String total = String.valueOf(grandTotal);
         String createBy = userEmail;
         Bill  bill = new Bill();
-        //Bill bill = new Bill();
         bill.setId(billId);
         bill.setName(customerName);
         bill.setMobileNumber(customerMobileNumber);
@@ -474,6 +475,16 @@ public class PlaceOrder extends javax.swing.JFrame {
         bill.setTotal(total);
         bill.setCreatedBy(createBy);
         BillDao.save(bill);
+        
+        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+        for (int i = 0; i < model.getRowCount(); i++) {
+            BillDetails billDetail = new BillDetails();
+            billDetail.setBillID(billId); // Liên kết với billId vừa tạo
+            billDetail.setProductName(model.getValueAt(i,0).toString());
+            billDetail.setPrice(model.getValueAt(i, 1).toString()); // Giá
+            billDetail.setQuantity(Integer.parseInt(model.getValueAt(i, 2).toString())); // Số lượng
+            BillDetailsDao.save(billDetail); // Lưu chi tiết hóa đơn
+        }
         String path = "D:\\";
         com.itextpdf.text.Document doc = new com.itextpdf.text.Document();
         try {

@@ -25,7 +25,7 @@ public class ViewBillsOrderPlacedDetails extends javax.swing.JFrame {
      */
     public ViewBillsOrderPlacedDetails() {
         initComponents();
-        SimpleDateFormat dFormat = new SimpleDateFormat("dd-MM-YYYY");
+        SimpleDateFormat dFormat = new SimpleDateFormat("YYYY-MM-dd");
         Date date = new Date();
         String todayDate = dFormat.format(date);
         jTextField1.setText(todayDate);

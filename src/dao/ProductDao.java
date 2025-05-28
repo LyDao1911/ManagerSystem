@@ -94,4 +94,21 @@ public class ProductDao {
         }
         return product;
     }
+    public static ArrayList<Product> searchByName(String searchTerm) {
+        ArrayList<Product> list = new ArrayList<>();
+        try {
+            ResultSet rs = DbOperations.getData("SELECT * FROM product WHERE name LIKE '%" + searchTerm + "%'");
+            while (rs.next()) {
+                Product product = new Product();
+                product.setId(rs.getInt("id"));
+                product.setName(rs.getString("name"));
+                product.setCategory(rs.getString("category"));
+                product.setPrice(rs.getString("price"));
+                list.add(product);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return list;
+    }
 }

@@ -29,6 +29,7 @@ public class Home extends javax.swing.JFrame {
             btnNewProduct.setVisible(false);
             btnViewEditDeleteProduct.setVisible(false);
             btnVerifyUsers.setVisible(false);
+            btnStatistics.setVisible(false);
         }
     }
 
@@ -51,6 +52,7 @@ public class Home extends javax.swing.JFrame {
         btnNewProduct = new javax.swing.JButton();
         btnViewEditDeleteProduct = new javax.swing.JButton();
         btnVerifyUsers = new javax.swing.JButton();
+        btnStatistics = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -125,7 +127,7 @@ public class Home extends javax.swing.JFrame {
                 btnCategoryActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 790, -1, -1));
+        getContentPane().add(btnCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 790, -1, -1));
 
         btnNewProduct.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnNewProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/new product.png"))); // NOI18N
@@ -135,7 +137,7 @@ public class Home extends javax.swing.JFrame {
                 btnNewProductActionPerformed(evt);
             }
         });
-        getContentPane().add(btnNewProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 790, -1, -1));
+        getContentPane().add(btnNewProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 790, -1, -1));
 
         btnViewEditDeleteProduct.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnViewEditDeleteProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/view edit delete product.png"))); // NOI18N
@@ -145,7 +147,7 @@ public class Home extends javax.swing.JFrame {
                 btnViewEditDeleteProductActionPerformed(evt);
             }
         });
-        getContentPane().add(btnViewEditDeleteProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 790, -1, -1));
+        getContentPane().add(btnViewEditDeleteProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 790, -1, -1));
 
         btnVerifyUsers.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnVerifyUsers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/verify users.png"))); // NOI18N
@@ -155,10 +157,20 @@ public class Home extends javax.swing.JFrame {
                 btnVerifyUsersActionPerformed(evt);
             }
         });
-        getContentPane().add(btnVerifyUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 790, -1, -1));
+        getContentPane().add(btnVerifyUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 790, -1, -1));
+
+        btnStatistics.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnStatistics.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/revenue.png"))); // NOI18N
+        btnStatistics.setText(" Thống Kê");
+        btnStatistics.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStatisticsActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnStatistics, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 790, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/home-background-image.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1510, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -221,6 +233,12 @@ public class Home extends javax.swing.JFrame {
         new ChangeSecurityQuestion(email).setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void btnStatisticsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStatisticsActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        new ViewStatistics().setVisible(true);
+    }//GEN-LAST:event_btnStatisticsActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -259,6 +277,7 @@ public class Home extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCategory;
     private javax.swing.JButton btnNewProduct;
+    private javax.swing.JButton btnStatistics;
     private javax.swing.JButton btnVerifyUsers;
     private javax.swing.JButton btnViewEditDeleteProduct;
     private javax.swing.JButton jButton1;
